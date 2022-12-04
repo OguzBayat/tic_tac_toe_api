@@ -1,0 +1,22 @@
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+    - 'test/factories/*'
+
+Metrics/LineLength:
+  Max: 100
+
+Style/Documentation:
+  Exclude:
+    - 'db/migrate/*'
+    - 'test/**/*'
+
+Documentation:
+  Enabled: false
