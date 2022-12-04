@@ -7,12 +7,12 @@ class WinningNumbersController < ApplicationController
   def index
     @winning_numbers = WinningNumber.all
 
-    render json: @winning_numbers
+    render json: WinningNumbersSerializer.new(@winning_numbers)
   end
 
   # GET /winning_numbers/1
   def show
-    render json: @winning_number
+    render json: WinningNumbersSerializer.new(@winning_number)
   end
 
   # POST /winning_numbers
@@ -20,7 +20,8 @@ class WinningNumbersController < ApplicationController
     @winning_number = WinningNumber.new(winning_number_params)
 
     if @winning_number.save
-      render json: @winning_number, status: :created, location: @winning_number
+      render json: WinningNumbersSerializer.new(@winning_number), status: :created,
+             location: @winning_number
     else
       render json: @winning_number.errors, status: :unprocessable_entity
     end
@@ -29,7 +30,7 @@ class WinningNumbersController < ApplicationController
   # PATCH/PUT /winning_numbers/1
   def update
     if @winning_number.update(winning_number_params)
-      render json: @winning_number
+      render json: WinningNumbersSerializer.new(@winning_number)
     else
       render json: @winning_number.errors, status: :unprocessable_entity
     end

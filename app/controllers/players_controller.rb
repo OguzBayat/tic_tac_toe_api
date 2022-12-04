@@ -7,12 +7,12 @@ class PlayersController < ApplicationController
   def index
     @players = Player.all
 
-    render json: @players
+    render json: PlayerSerializer.new(@players)
   end
 
   # GET /players/1
   def show
-    render json: @player
+    render json: PlayerSerializer.new(@player)
   end
 
   # POST /players
@@ -20,7 +20,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
 
     if @player.save
-      render json: @player, status: :created, location: @player
+      render json: PlayerSerializer.new(@player), status: :created, location: @player
     else
       render json: @player.errors, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class PlayersController < ApplicationController
   # PATCH/PUT /players/1
   def update
     if @player.update(player_params)
-      render json: @player
+      render json: PlayerSerializer.new(@player)
     else
       render json: @player.errors, status: :unprocessable_entity
     end
