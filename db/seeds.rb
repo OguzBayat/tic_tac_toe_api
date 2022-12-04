@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Creates the 2 players required for the game
-Player.create(name: 'Player1')
-Player.create(name: 'Player2', sign: 1)
+Player.create(name: 'Player1', sign: 'X')
+Player.create(name: 'Player2', sign: 'O')
 puts('players are created')
 
 # initial a game beacause when app starts user should see a game
