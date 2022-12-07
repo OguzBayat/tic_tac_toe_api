@@ -2,6 +2,6 @@
 
 class GameSerializer
   include JSONAPI::Serializer
-  attributes :id, :winner, :move_count, :turn
+  attributes :winner, :move_count, :turn
   has_many :plays
 end

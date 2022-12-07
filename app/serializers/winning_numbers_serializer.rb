@@ -2,5 +2,5 @@
 
 class WinningNumbersSerializer
   include JSONAPI::Serializer
-  attributes :id, :numbers
+  attributes :numbers
 end
