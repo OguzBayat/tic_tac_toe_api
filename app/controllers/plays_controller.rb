@@ -49,6 +49,6 @@ class PlaysController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def play_params
-    params.require(:play).permit(:game_id, :player_id, :moves)
+    params.require(:data).require(:attributes).permit(%i[game_id player_id moves])
   end
 end

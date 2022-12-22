@@ -50,6 +50,6 @@ class WinningNumbersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def winning_number_params
-    params.require(:winning_number).permit(:numbers)
+    params.require(:data).require(:attributes).permit(%i[numbers])
   end
 end
