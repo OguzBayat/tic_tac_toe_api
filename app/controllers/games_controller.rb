@@ -48,6 +48,7 @@ class GamesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def game_params
-    params.require(:data).require(:attributes).permit(%i[winner_id move_count turn])
+    params.require(:data).require(:attributes).permit(:winner_id, :move_count, :turn,
+                                                      player1_moves: [], player2_moves: [])
   end
 end
