@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 
   # GET /games
   def index
-    @games = Game.all
+    @games = Game.all.order(created_at: :desc)
     render json: GameSerializer.new(@games)
   end
 
